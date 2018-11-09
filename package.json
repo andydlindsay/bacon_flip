@@ -1,0 +1,27 @@
+{
+  "name": "bacon-v-kevin-bacon",
+  "version": "1.0.0",
+  "description": "A game of Bacon vs Kevin Bacon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andydlindsay/bacon-v-kevin-bacon.git"
+  },
+  "keywords": [
+    "game",
+    "kevin",
+    "bacon"
+  ],
+  "author": "Andy Lindsay <andydlindsay@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andydlindsay/bacon-v-kevin-bacon/issues"
+  },
+  "homepage": "https://github.com/andydlindsay/bacon-v-kevin-bacon#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

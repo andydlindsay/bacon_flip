@@ -32,7 +32,8 @@ div.bad {
 }
 
 .hidden {
-    visibility: hidden;
+    /* visibility: hidden; */
+    /* background: transparent; */
 }
 
 .button {

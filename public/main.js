@@ -1,5 +1,11 @@
-const baconImageSource = 'https://baconmockup.com/1240/775/';
-const kevinImageSource = 'https://static.parade.com/wp-content/uploads/2016/05/KevinBacon-FTR.jpg';
+const baconImages = [
+    'https://baconmockup.com/1240/775/',
+    'https://static.parade.com/wp-content/uploads/2016/05/KevinBacon-FTR.jpg',
+];
+const newtonImages = [
+    'https://upload.wikimedia.org/wikipedia/commons/c/c9/Fig-Newtons-Stacked.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/5/5e/Olivia_Newton_John_%286707495311%29_%28cropped_to_look_large%29.jpg'
+];
 
 $(document).ready(() => {
 
@@ -8,6 +14,7 @@ $(document).ready(() => {
     const $card = $('#card');
     const $cardBack = $('#card div.back');
     const $messageArea = $('div.message-area');
+    const $questionArea = $('h4.question');
     let correctNumber = 0;
 
     function generateCard(imageSrc) {
@@ -31,12 +38,31 @@ $(document).ready(() => {
         $messageArea.addClass('bg-transparent');
     }
 
+    function genRandomNumber(min, max) {
+        return Math.floor(Math.random() * max) + min;
+    }
+
     function makeRandomCard() {
-        correctNumber = Math.floor(Math.random() * 2) + 1;
-        if (correctNumber === 1) {
-            generateCard(baconImageSource);
+        const cardType = genRandomNumber(1, 2);
+        let foodImage, celebImage;
+        if (cardType === 1) {
+            foodImage = baconImages[0];
+            celebImage = baconImages[1];
+            $questionArea.text('Bacon or Kevin Bacon?');
+            $button1.text('Bacon!');
+            $button2.text('Kevin Bacon!');
         } else {
-            generateCard(kevinImageSource);
+            foodImage = newtonImages[0];
+            celebImage = newtonImages[1];
+            $questionArea.text('Fig Newton or Olivia Newton John?');
+            $button1.text('Fig Newton!');
+            $button2.text('Olivia Newton John!');
+        }
+        correctNumber = genRandomNumber(1, 2);
+        if (correctNumber === 1) {
+            generateCard(foodImage);
+        } else {
+            generateCard(celebImage);
         }
     }
 

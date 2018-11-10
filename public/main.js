@@ -1,10 +1,92 @@
-const baconImages = [
-    'https://baconmockup.com/1240/775/',
-    'https://static.parade.com/wp-content/uploads/2016/05/KevinBacon-FTR.jpg',
-];
-const newtonImages = [
-    'https://upload.wikimedia.org/wikipedia/commons/c/c9/Fig-Newtons-Stacked.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/5/5e/Olivia_Newton_John_%286707495311%29_%28cropped_to_look_large%29.jpg'
+const data = [
+    {
+        question: 'Bacon or Kevin Bacon?',
+        images: [
+            'https://baconmockup.com/1240/775/',
+            'https://static.parade.com/wp-content/uploads/2016/05/KevinBacon-FTR.jpg',
+        ],
+        buttonLabels: [
+            'Bacon!',
+            'Kevin Bacon!'
+        ],
+    },
+    {
+        question: 'Fig Newton or Olivia Newton John?',
+        images: [
+            'https://upload.wikimedia.org/wikipedia/commons/c/c9/Fig-Newtons-Stacked.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/5/5e/Olivia_Newton_John_%286707495311%29_%28cropped_to_look_large%29.jpg'
+        ],
+        buttonLabels: [
+            'Fig Newton!',
+            'Olivia Newton John!'
+        ],
+    },
+    {
+        question: 'Raspberry or Halle Berry?',
+        images: [
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5lJzqAHeZV1snPQDJF7X6BFdQx3ARa0sKDlIaVrjW36PL-LID1Q',
+            'https://upload.wikimedia.org/wikipedia/commons/f/f8/Halle_Berry_10.jpg'
+        ],
+        buttonLabels: [
+            'Raspberry!',
+            'Halle Berry!'
+        ],
+    },
+    {
+        question: 'Brie or Brie Larson?',
+        images: [
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Brie_1.jpg/640px-Brie_1.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/6/64/Brie_Larson_%28cropped%29.jpg'
+        ],
+        buttonLabels: [
+            'Brie!',
+            'Brie Larson!'
+        ],
+    },
+    {
+        question: 'Carrot or Carrot Top?',
+        images: [
+            'http://res.publicdomainfiles.com/pdf_view/66/13920250219615.png',
+            'https://upload.wikimedia.org/wikipedia/commons/8/8a/CarrotTop.jpg'
+        ],
+        buttonLabels: [
+            'Carrot!',
+            'Carrot Top!'
+        ],
+    },
+    {
+        question: 'Sugar or Sugar Ray Leonard?',
+        images: [
+            'https://c1.staticflickr.com/4/3002/2452033439_f2624766aa_b.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/8/86/Sugar_Ray_Leonard.png'
+        ],
+        buttonLabels: [
+            'Sugar!',
+            'Sugar Ray Leonard!'
+        ],
+    },
+    {
+        question: 'Kidney Bean or Sean Bean?',
+        images: [
+            'https://upload.wikimedia.org/wikipedia/commons/0/0e/Reniform_kidney_bean_seeds.jpg',
+            'https://c1.staticflickr.com/6/5464/9872004645_8dd05de1e5_b.jpg'
+        ],
+        buttonLabels: [
+            'Kidney Bean!',
+            'Sean Bean!'
+        ],
+    },
+    {
+        question: 'Ice or Vanilla Ice?',
+        images: [
+            'https://c1.staticflickr.com/4/3280/2591108804_194476beed_b.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Vanilla_Ice_-_Too_Cold..._Too_Cold..._%285076391518%29.jpg/382px-Vanilla_Ice_-_Too_Cold..._Too_Cold..._%285076391518%29.jpg'
+        ],
+        buttonLabels: [
+            'Ice!',
+            'Vanilla Ice!'
+        ],
+    }
 ];
 
 $(document).ready(() => {
@@ -43,21 +125,14 @@ $(document).ready(() => {
     }
 
     function makeRandomCard() {
-        const cardType = genRandomNumber(1, 2);
-        let foodImage, celebImage;
-        if (cardType === 1) {
-            foodImage = baconImages[0];
-            celebImage = baconImages[1];
-            $questionArea.text('Bacon or Kevin Bacon?');
-            $button1.text('Bacon!');
-            $button2.text('Kevin Bacon!');
-        } else {
-            foodImage = newtonImages[0];
-            celebImage = newtonImages[1];
-            $questionArea.text('Fig Newton or Olivia Newton John?');
-            $button1.text('Fig Newton!');
-            $button2.text('Olivia Newton John!');
-        }
+        const cardType = genRandomNumber(0, data.length);
+        const pairing = data[cardType];
+        const foodImage = pairing.images[0];
+        const celebImage = pairing.images[1];
+        $questionArea.text(pairing.question);
+        $button1.text(pairing.buttonLabels[0]);
+        $button2.text(pairing.buttonLabels[1]);
+
         correctNumber = genRandomNumber(1, 2);
         if (correctNumber === 1) {
             generateCard(foodImage);

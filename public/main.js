@@ -20,7 +20,7 @@ $(document).ready(() => {
     }
 
     function showMessage(message, isGood) {
-        $messageArea.removeClass('blah');
+        $messageArea.removeClass('bg-transparent');
         $messageArea.text(message);
         $messageArea.addClass(isGood ? 'good' : 'bad');
     }
@@ -28,7 +28,7 @@ $(document).ready(() => {
     function clearMessage() {
         $messageArea.removeClass('good bad');
         $messageArea.text('');
-        $messageArea.addClass('blah');
+        $messageArea.addClass('bg-transparent');
     }
 
     function makeRandomCard() {
@@ -76,7 +76,6 @@ $(document).ready(() => {
     }
 
     $button1.click(handleClick);
-
     $button2.click(handleClick);
 
 });

@@ -20,14 +20,15 @@ $(document).ready(() => {
     }
 
     function showMessage(message, isGood) {
-        $messageArea.removeClass('good bad hidden');
+        $messageArea.removeClass('blah');
         $messageArea.text(message);
         $messageArea.addClass(isGood ? 'good' : 'bad');
     }
 
     function clearMessage() {
+        $messageArea.removeClass('good bad');
         $messageArea.text('');
-        $messageArea.addClass('hidden');
+        $messageArea.addClass('blah');
     }
 
     function makeRandomCard() {

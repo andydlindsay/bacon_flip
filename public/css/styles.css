@@ -8,8 +8,8 @@ img.card-back {
 }
 
 img.card {
-    height: 413px;
-    width: 258px;
+    height: calc(413px * 0.9);
+    width: calc(258px * 0.9);
     margin-bottom: 1em;
     border-radius: 15px;
 }

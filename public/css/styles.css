@@ -1,0 +1,40 @@
+body {
+    font-family: 'Courgette', cursive;
+}
+
+img.card-back {
+    border: 1px solid black;
+    padding: 1em;
+}
+
+img.card {
+    height: 413px;
+    width: 258px;
+    margin-bottom: 1em;
+    border-radius: 15px;
+}
+
+div.message-area {
+    font-size: 1.3em;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    padding: 0.5em;
+}
+
+div.good {
+    background-color: lightgreen;
+    color: forestgreen;
+}
+
+div.bad {
+    background-color: lightsalmon;
+    color: darkmagenta;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.button {
+    margin: 0.5em;
+}

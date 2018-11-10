@@ -1,1 +1,60 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>BaconFlip</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+
+</head>
+<body>
+    
+    <div class="text-center">
+        <h1 class="display-4">Welcome to BaconFlip!</h1>
+        <h4>Guess what's behind the card! Bacon or Kevin Bacon!</h4>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div id="card" align="center">
+
+                <div class="front">
+                    <img class="img-fluid card" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Reverso_baraja_espa%C3%B1ola.svg/2000px-Reverso_baraja_espa%C3%B1ola.svg.png" />
+                </div>
+
+                <div class="back"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" align="center">
+            <button id="choice1" class="button btn btn-primary">Bacon!</button>
+            <button id="choice2" class="button btn btn-primary">Kevin Bacon!</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5" align="center">
+            <div class="message-area"></div>
+        </div>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

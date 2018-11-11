@@ -86,7 +86,29 @@ const data = [
             'Ice!',
             'Vanilla Ice!'
         ],
-    }
+    },
+    {
+        question: 'Iced Tea or Ice T?',
+        images: [
+            'https://upload.wikimedia.org/wikipedia/commons/e/e1/NCI_iced_tea.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/7/7d/Ice_T_SVU_March_2011_%28cropped%29.jpg'
+        ],
+        buttonLabels: [
+            'Iced Tea!',
+            'Ice T!'
+        ],
+    },
+    {
+        question: 'Asparagus Spears or Britney Spears?',
+        images: [
+            'http://res.freestockphotos.biz/pictures/6/6102-close-up-of-asparagus-tips-isolated-on-a-green-background-pv.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/7/7a/Britney_Spears_2013.jpg'
+        ],
+        buttonLabels: [
+            'Asparagus Spears!',
+            'Britney Spears!'
+        ],
+    },
 ];
 
 $(document).ready(() => {
@@ -97,7 +119,13 @@ $(document).ready(() => {
     const $cardBack = $('#card div.back');
     const $messageArea = $('div.message-area');
     const $questionArea = $('h4.question');
+
     let correctNumber = 0;
+    let numCorrectGuesses = 0;
+    let numWrongGuesses = 0;
+    let correctStreak = 0;
+    let wrongStreak = 0;
+    let longestStreak = 0;
 
     function generateCard(imageSrc) {
         $cardBack.empty();
@@ -162,10 +190,27 @@ $(document).ready(() => {
         disableButtons();
         const choice = event.target.id[event.target.id.length - 1];
         if (parseInt(choice) === correctNumber) {
-            showMessage('You chose well!', true);
+            correctStreak++;
+            longestStreak = correctStreak > longestStreak ? correctStreak : longestStreak;
+            wrongStreak = 0;
+            numCorrectGuesses++;
+            if (correctStreak > 1) {
+                showMessage(`You've chosen well ${correctStreak} times in a row!`, true);
+            } else {
+                showMessage('You chose well!', true);
+            }
         } else {
-            showMessage('You chose poorly', false);
+            wrongStreak++;
+            longestStreak = wrongStreak > longestStreak ? wrongStreak : longestStreak;
+            correctStreak = 0;
+            numWrongGuesses++;
+            if (wrongStreak > 1) {
+                showMessage(`${wrongStreak} wrong guesses in a row`, false);
+            } else {
+                showMessage('You chose poorly', false);
+            }
         }
+        console.log(`right: ${numCorrectGuesses}, wrong: ${numWrongGuesses}, total: ${numCorrectGuesses + numWrongGuesses}, longest: ${longestStreak}`);
         setTimeout(() => {
             clearMessage();
             $card.flip(false);
@@ -173,7 +218,7 @@ $(document).ready(() => {
                 makeRandomCard();
                 enableButtons();
             }, 500);            
-        }, 1500);
+        }, 2000);
     }
 
     $button1.click(handleClick);

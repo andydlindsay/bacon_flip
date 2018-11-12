@@ -116,9 +116,14 @@ $(document).ready(() => {
     const $button1 = $('#choice1');
     const $button2 = $('#choice2');
     const $card = $('#card');
-    const $cardBack = $('#card div.back');
+    const $cardBack = $('#card div.cd-back');
     const $messageArea = $('div.message-area');
     const $questionArea = $('h4.question');
+    const $gameboard = $('#gameboard');
+    const $statsCorrect = $('.analytics .correct');
+    const $statsIncorrect = $('.analytics .incorrect');
+    const $statsTotal = $('.analytics .total');
+    const $statsStreak = $('.analytics .streak');
 
     let correctNumber = 0;
     let numCorrectGuesses = 0;
@@ -169,6 +174,22 @@ $(document).ready(() => {
         }
     }
 
+    function updateStats() {
+        const total = numCorrectGuesses + numWrongGuesses;
+
+        let statText = `Correct: ${numCorrectGuesses}  (${(numCorrectGuesses / total * 100 || 0).toFixed(2)}%)`;
+        $statsCorrect.text(statText);
+
+        statText = `Wrong: ${numWrongGuesses}  (${(numWrongGuesses / total * 100 || 0).toFixed(2)}%)`;
+        $statsIncorrect.text(statText);
+
+        statText = `Total Guesses: ${total}`;
+        $statsTotal.text(statText);
+
+        statText = `Longest Streak: ${longestStreak}`;
+        $statsStreak.text(statText);
+    }
+
     function disableButtons() {
         $button1.prop('disabled', true);
         $button2.prop('disabled', true);
@@ -179,11 +200,19 @@ $(document).ready(() => {
         $button2.prop('disabled', false);
     }
 
+    $gameboard.flip({
+        front: '.gb-front',
+        back: '.gb-back',
+    });
+
     $card.flip({
-        trigger: 'manual'
+        trigger: 'manual',
+        front: '.cd-front',
+        back: '.cd-back',
     });
 
     makeRandomCard();
+    updateStats();
 
     function handleClick (event) {
         $card.flip(true);
@@ -210,7 +239,7 @@ $(document).ready(() => {
                 showMessage('You chose poorly', false);
             }
         }
-        console.log(`right: ${numCorrectGuesses}, wrong: ${numWrongGuesses}, total: ${numCorrectGuesses + numWrongGuesses}, longest: ${longestStreak}`);
+        updateStats();
         setTimeout(() => {
             clearMessage();
             $card.flip(false);

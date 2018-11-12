@@ -14,6 +14,16 @@ img.card {
     border-radius: 15px;
 }
 
+div.analytics {
+    height: calc(413px * 0.9);
+    width: calc(258px * 0.9);
+    margin-bottom: 1em;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+}
+
 div.message-area {
     font-size: 1.3em;
     border-radius: 5px;

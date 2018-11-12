@@ -16,39 +16,64 @@
 </head>
 <body>
     
-    <div class="text-center">
-        <h1 class="display-4">BaconFlip!</h1>
-        <h4>Guess what's behind the card!</h4>
-        <h4 class="question"></h4>
-    </div>
-
     <div class="container">
-        <div class="row">
 
-            <div id="card" align="center">
+        <div class="row text-center">
+            <h1 class="display-4">BaconFlip!</h1>
+            <h4>Guess what's behind the card!</h4>
+        </div>
 
-                <div class="front">
-                    <img class="img-fluid card" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Reverso_baraja_espa%C3%B1ola.svg/2000px-Reverso_baraja_espa%C3%B1ola.svg.png" />
+        <div class="row text-center">
+            <h4 class="question"></h4>
+        </div>
+
+        <div id="gameboard">
+
+            <div class="gb-front">
+                <div class="row">
+                    <div id="card" align="center">
+
+                        <div class="cd-front">
+                            <img class="img-fluid card" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Reverso_baraja_espa%C3%B1ola.svg/2000px-Reverso_baraja_espa%C3%B1ola.svg.png" />
+                        </div>
+
+                        <div class="cd-back"></div>
+
+                    </div>
                 </div>
+            </div>
 
-                <div class="back"></div>
+            <div class="gb-back">
+                <div class="row">
+                    <div align="center">
+                        <div class="analytics" align="left">
 
+                            <h3 class="title" align="center">Stats</h4>
+                            <h4 class="correct"></h5>
+                            <h4 class="incorrect"></h5>
+                            <h4 class="total"></h5>
+                            <h4 class="streak"></h5>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3" align="center">
-            <button id="choice1" class="button btn btn-primary"></button>
-            <button id="choice2" class="button btn btn-primary"></button>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3" align="center">
+                <button id="choice1" class="button btn btn-primary"></button>
+                <button id="choice2" class="button btn btn-primary"></button>
+            </div>
         </div>
-    </div>
 
-    <div class="row" align="center">
-        <div class="col-md-2 col-md-offset-5 col-xs-6 col-xs-offset-3 message-holder" align="center">
-            <div class="message-area"></div>
+        <div class="row" align="center">
+            <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 message-holder" align="center">
+                <div class="message-area"></div>
+            </div>
         </div>
+
     </div>
 
     <!-- Load scripts -->
